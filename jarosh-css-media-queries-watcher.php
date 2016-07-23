@@ -52,8 +52,12 @@ if (PHP_SAPI=='cli')
 
 define('MINIFY', (PHP_SAPI=='cli') ? array_key_exists('minify', $opts) : (isset($_GET['minify']) && $_GET['minify']));
 define('CCLASS', (PHP_SAPI=='cli')
-    ? ( (array_key_exists('cclass', $opts) && strlen(trim($opts['cclass']))) ? trim($opts['cclass']) : 'JaroshCssMediaWatcher' )
-    : ( (!empty($_GET['cclass']) && strlen(trim($_GET['cclass']))) ? trim($_GET['cclass']) : 'JaroshCssMediaWatcher' )
+    ? ( (array_key_exists('cclass', $opts) && strlen(trim($opts['cclass']))) ? trim($opts['cclass']) : 'JaroshCssMediaQueriesWatcher' )
+    : ( (!empty($_GET['cclass']) && strlen(trim($_GET['cclass']))) ? trim($_GET['cclass']) : 'JaroshCssMediaQueriesWatcher' )
+);
+define('PREFIX', (PHP_SAPI=='cli')
+    ? ( (array_key_exists('prefix', $opts) && strlen(trim($opts['prefix']))) ? trim($opts['prefix']) : '' )
+    : ( (!empty($_GET['prefix']) && strlen(trim($_GET['prefix']))) ? trim($_GET['prefix']) : '' )
 );
 
 define('CHAR_SPC', !MINIFY?" ":'');
@@ -69,7 +73,7 @@ function gen_array($param, $set, $class=null)
         $r.= '@media'
             . ( empty($param) ? ' only '.$v : CHAR_SPC.'('.$param.':'.CHAR_SPC.$v.')' )
             . CHAR_NLN.CHAR_TAB
-            . '{'.CHAR_SPC.'.'.CCLASS.' .'.(empty($class)?$param:$class).':before'.CHAR_SPC
+            . '{'.CHAR_SPC.'.'.PREFIX.CCLASS.' .'.(empty($class)?$param:$class).':before'.CHAR_SPC
             . '{'.CHAR_SPC.'content:'.CHAR_SPC.'"'.$v.'";'
             . CHAR_SPC.'}'.CHAR_SPC.'}'
             . CHAR_NLN;
@@ -87,7 +91,7 @@ function gen_range($param, $min, $max, $step, $unit='px')
             . ( $i!=0 ? '(min-'.$param.':'.CHAR_SPC.($i+1).$unit.')'.CHAR_SPC.' and '.CHAR_SPC : '' )
             . '(max-'.$param.':'.CHAR_SPC.(($i==0)?$min:$i+$step).$unit.')'
             . CHAR_NLN.CHAR_TAB
-            . '{'.CHAR_SPC.'.'.CCLASS.' .'.$param.':before'.CHAR_SPC
+            . '{'.CHAR_SPC.'.'.PREFIX.CCLASS.' .'.$param.':before'.CHAR_SPC
             . '{'.CHAR_SPC.'content:'.CHAR_SPC.'"'.(($i==0)?'<'.$min:$i+1).'";'
             . CHAR_SPC.'}'.CHAR_SPC.'}'
             . CHAR_NLN;
@@ -107,7 +111,7 @@ function gen_ratio($param, $bound)
             $r.= '@media'.CHAR_SPC
                 . '('.$param.':'.CHAR_SPC.$i.'/'.$j.')'
                 . CHAR_NLN.CHAR_TAB
-                . '{'.CHAR_SPC.'.'.CCLASS.' .'.$param.':before'.CHAR_SPC
+                . '{'.CHAR_SPC.'.'.CCLASS.' .'.PREFIX.$param.':before'.CHAR_SPC
                 . '{'.CHAR_SPC.'content:'.CHAR_SPC.'"'.$i.'/'.$j.'";'
                 . CHAR_SPC.'}'.CHAR_SPC.'}'
                 . CHAR_NLN;

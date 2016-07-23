@@ -1,40 +1,97 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Jarosh CSS Media Watcher</title>
+        <title>Jarosh CSS Media Queries Watcher</title>
         <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="generator.php?minify=1" />
+        <link type="text/css" rel="stylesheet" href="jarosh-css-media-queries-watcher.php?minify=1" />
+        <style>
+            *, html, body {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                box-sizing: border-box;
+                font-family: "Helvetica Neue", Arial, Tahoma, Verdana, sans-serif;
+            }
+            body {
+                height: 100%;
+                font-size: 20px;
+                background: beige;
+            }
+            #outer {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            #inner {
+                -webkit-font-smoothing: antialiased;
+                text-align: center;
+                height: 14em;
+                margin: auto;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                min-width: 400px;
+            }
+            .JaroshCssMediaQueriesWatcher {
+                margin: 0 2em;
+                border: 0.1em dotted burlywood;
+            }
+            .JaroshCssMediaQueriesWatcher > li {
+                height: 2em;
+                list-style: none;
+                line-height: 2em;
+            }
+            .JaroshCssMediaQueriesWatcher > li > b {
+                float: left;
+                display: inline-block;
+                width: 55%;
+                padding-right: 1em;
+                text-align: right;
+            }
+            .JaroshCssMediaQueriesWatcher > li > span {
+                float: right;
+                display: inline-block;
+                width: 45%;
+                text-align: left;
+            }
+        </style>
     </head>
     <body>
-        <ul class="JaroshCssMediaWatcher">
-            <li>
-                <b>Device Type:</b>
-                <span class="type">;</span>
-            </li>
-            <li>
-                <b>Orientation:</b>
-                <span class="orientation">;</span>
-            </li>
-            <li>
-                <b>Resolution</b>
-                <span class="resolution">dpi;</span>
-            </li>
-            <li>
-                <b>Width</b>
-                <span class="width">px;</span>
-            </li>
-            <li>
-                <b>Height</b>
-                <span class="height">px;</span>
-            </li>
-            <li>
-                <b>Device Width</b>
-                <span class="device-width">px;</span>
-            </li>
-            <li>
-                <b>Device Height</b>
-                <span class="device-height">px;</span>
-            </li>
-        </ul>
+        <div id="outer">
+            <div id="inner">
+                <ul class="JaroshCssMediaQueriesWatcher">
+                    <li>
+                        <b>Device Type:</b>
+                        <span class="type">;</span>
+                    </li>
+                    <li>
+                        <b>Orientation:</b>
+                        <span class="orientation">;</span>
+                    </li>
+                    <li>
+                        <b>Resolution</b>
+                        <span class="resolution">dpi;</span>
+                    </li>
+                    <li>
+                        <b>Width</b>
+                        <span class="width">px;</span>
+                    </li>
+                    <li>
+                        <b>Height</b>
+                        <span class="height">px;</span>
+                    </li>
+                    <li>
+                        <b>Device Width</b>
+                        <span class="device-width">px;</span>
+                    </li>
+                    <li>
+                        <b>Device Height</b>
+                        <span class="device-height">px;</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </body>
 </html>
