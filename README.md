@@ -11,3 +11,50 @@ You're also free to chose whether to use one of the preset files, or use PHP scr
 
     <link type="text/css" rel="stylesheet" href="JaroshCssMediaQueryWatcher.php?minify=1" />
 
+Generator may be used as both the script executed by the webserver sending its output through the HTTP and as a command line tool. For both cases it may accept following optional parameters:
+
+ - **minify** - specifies whether  output must be minified or not; should take value of 1 to enable minification when passed as a part of a query string; shouldn't take any value when used as a command line option, the presence of --minify option itself is just enough  in order to enable minification.
+ - **cclass** - outermost class name of an HTML block;  the default value is *JaroshCssMediaQueriesWatcher*
+ - **prefix** - prefix of classes of internal informational blocks; empty by default;
+
+Usage:
+
+    <link type="text/css" rel="stylesheet" href="JaroshCssMediaQueryWatcher.php?minify=1&cclass=SomeDummyClassName&prefix=css-" />
+
+the same as a command
+
+    php jarosh-css-media-queries-watcher.php --minify --cclass=SomeDummyClassName --prefix=css-media-
+
+Both will generate CSS code that will expect following (approximately) HTML to work properly:
+
+                    <ul class="SomeDummyClassName">
+                    <li>
+                        <b>Device Type:</b>
+                        <span class="css-media-type">;</span>
+                    </li>
+                    <li>
+                        <b>Orientation:</b>
+                        <span class="css-media-orientation">;</span>
+                    </li>
+                    <li>
+                        <b>Resolution</b>
+                        <span class="css-media-resolution">dpi;</span>
+                    </li>
+                    <li>
+                        <b>Width</b>
+                        <span class="css-media-width">px;</span>
+                    </li>
+                    <li>
+                        <b>Height</b>
+                        <span class="css-media-height">px;</span>
+                    </li>
+                    <li>
+                        <b>Device Width</b>
+                        <span class="css-media-device-width">px;</span>
+                    </li>
+                    <li>
+                        <b>Device Height</b>
+                        <span class="css-media-device-height">px;</span>
+                    </li>
+                </ul>
+
