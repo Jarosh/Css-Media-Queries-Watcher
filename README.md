@@ -27,34 +27,34 @@ the same as a command
 
 Both will generate CSS code that will expect following (approximately) HTML to work properly:
 
-                    <ul class="SomeDummyClassName">
-                    <li>
-                        <b>Device Type:</b>
-                        <span class="css-media-type">;</span>
-                    </li>
-                    <li>
-                        <b>Orientation:</b>
-                        <span class="css-media-orientation">;</span>
-                    </li>
-                    <li>
-                        <b>Resolution</b>
-                        <span class="css-media-resolution">dpi;</span>
-                    </li>
-                    <li>
-                        <b>Width</b>
-                        <span class="css-media-width">px;</span>
-                    </li>
-                    <li>
-                        <b>Height</b>
-                        <span class="css-media-height">px;</span>
-                    </li>
-                    <li>
-                        <b>Device Width</b>
-                        <span class="css-media-device-width">px;</span>
-                    </li>
-                    <li>
-                        <b>Device Height</b>
-                        <span class="css-media-device-height">px;</span>
-                    </li>
-                </ul>
+    <ul class="SomeDummyClassName">
+        <li>
+            <b>Device Type:</b>
+            <span class="css-media-type">;</span>
+        </li>
+        <li>
+            <b>Orientation:</b>
+            <span class="css-media-orientation">;</span>
+        </li>
+        <li>
+            <b>Resolution</b>
+            <span class="css-media-resolution">dpi;</span>
+        </li>
+        <li>
+            <b>Width</b>
+            <span class="css-media-width">px;</span>
+        </li>
+        <li>
+            <b>Height</b>
+            <span class="css-media-height">px;</span>
+        </li>
+        <li>
+            <b>Device Width</b>
+            <span class="css-media-device-width">px;</span>
+        </li>
+        <li>
+            <b>Device Height</b>
+            <span class="css-media-device-height">px;</span>
+        </li>
+    </ul>
 
