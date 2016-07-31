@@ -79,4 +79,3 @@ work properly:
             <span class="css-media-device-height">px;</span>
         </li>
     </ul>
-
